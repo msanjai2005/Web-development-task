@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Advanced Styling and JavaScript</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Task 3: Advanced Styling and JavaScript</h1>
+  </header>
+
+  <!-- Section 1: Responsive Layout -->
+  <section class="responsive-section">
+    <h2>Responsive Box</h2>
+    <div class="box-container">
+      <div class="box">Box 1</div>
+      <div class="box">Box 2</div>
+      <div class="box">Box 3</div>
+    </div>
+  </section>
+
+  <!-- Section 2: Quiz -->
+  <section class="quiz-section">
+    <h2>Simple Quiz</h2>
+    <div id="quiz-container">
+      <p id="question">Question will appear here</p>
+      <div id="options"></div>
+      <button onclick="nextQuestion()">Next</button>
+      <p id="score"></p>
+    </div>
+  </section>
+
+  <!-- Section 3: API Fetch -->
+  <section class="api-section">
+    <h2>Random Joke Generator</h2>
+    <button onclick="getJoke()">Get a Joke</button>
+    <p id="joke"></p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
