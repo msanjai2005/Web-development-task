@@ -3,160 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-      (function () {
-        emailjs.init("A7igV-AA2vg_sAQ9F"); // Replace with your EmailJS Public Key
-      })();
-    </script>
-    <title>Sanjai's Portfolio</title>
-   <link rel="icon" href="images/icon.jpg" type="image/jpeg">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <title>Product Listing Page</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- --------------------Navigation Bar----------------- -->
-    <div class="navbar-container">
-        <nav class="menu navbar">
-            <ul class="sidebar">
-                <li><img onclick="sidebarClose()" src="images/svg2.svg" alt="" ></li>
-                <li onclick="sidebarClose()"><a class="menuL"  href="#home">Home</a></li>
-                <li onclick="sidebarClose()"><a class="menuL" href="#about">About</a></li>
-                <li onclick="sidebarClose()"><a class="menuL" href="#skills">Skills</a></li>
-                <li onclick="sidebarClose()"><a class="menuL" href="#project">Projects</a></li>
-                <li onclick="sidebarClose()"><a class="menuL" href="#contact">Contact</a></li>  
-            </ul>
-            <ul class="mainbar">
-                <li><a href="#home">Portfolio</a></li>
-                <li class="hideOnMobile"><a href="#home">Home</a></li>
-                <li class="hideOnMobile"><a href="#about">About</a></li>
-                <li class="hideOnMobile"><a href="#skills">Skills</a></li>
-                <li class="hideOnMobile"><a href="#project">Projects</a></li>
-                <li class="hideOnMobile"><a href="#contact">Contact</a></li>  
-                <li class="hamburger" onclick="sidebarShow()"><img src="images/svg1.svg" alt=""></li>
-            </ul>
-        </nav>
+
+    <h1>Product Listing</h1>
+
+    <div class="controls">
+        <select id="categoryFilter">
+            <option value="">All Categories</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Books">Books</option>
+        </select>
+
+        <select id="priceFilter">
+            <option value="">All Prices</option>
+            <option value="under50">Under $50</option>
+            <option value="50to100">$50 to $100</option>
+            <option value="above100">Above $100</option>
+        </select>
+
+        <select id="sortFilter">
+            <option value="">Sort By</option>
+            <option value="priceAsc">Price: Low to High</option>
+            <option value="priceDesc">Price: High to Low</option>
+            <option value="ratingDesc">Rating: High to Low</option>
+        </select>
     </div>
-    <!-- -------------------Home-page------------------- -->
-    <div class="Home" id="home">
-        <div class="inner-home">
-            <div class="Small_about">
-                <h3>Hello It's me</h3>
-                <h1>SANJAI M</h1>
-                <h2>I'm a  <span id="dynamic-role"></span>|</h2>
-                <p>Hi, I'm  a Frontend Developer crafting responsive and engaging web experiences.</p>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/sanjai-m12/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/msanjai2005" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://leetcode.com/u/sanjaim2005/" target="_blank"><i class="fas fa-code"></i></a>
-                    <a href="https://www.instagram.com/sanjai_m_official/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                </div>
-                <button><a href="images/Final_Resume.pdf" download >Download CV <i class="fa-solid fa-file-lines"></i></a></button>
+
+    <div id="productContainer" class="product-container"></div>
+
+<script >
+const products = [
+        { id: 1, title: "Smartphone", category: "Electronics", price: 299, rating: 4.5, img: "images/phone.png" },
+        { id: 2, title: "Jeans", category: "Clothing", price: 40, rating: 4.0, img: "images/pant.jpg" },
+        { id: 3, title: "Novel", category: "Books", price: 20, rating: 4.8, img: "images/book.jpg" },
+        { id: 4, title: "Laptop", category: "Electronics", price: 899, rating: 4.7, img: "images/laptop.jpg" },
+        { id: 5, title: "T-shirt", category: "Clothing", price: 25, rating: 3.9, img: "images/t-shirt.jpg" },
+        { id: 6, title: "Textbook", category: "Books", price: 110, rating: 4.2, img: "images/book1.png" },
+        { id: 7, title: "Headphones", category: "Electronics", price: 120, rating: 4.3, img: "images/head-phones.jpeg" },
+        { id: 8, title: "Sneakers", category: "Clothing", price: 75, rating: 4.6, img: "images/shoues.avif" },
+        { id: 9, title: "Cookbook", category: "Books", price: 35, rating: 4.1, img: "images/cookbook.jpg" },
+        { id: 10, title: "Smartwatch", category: "Electronics", price: 199, rating: 4.4, img:"images/watch.jpg" },
+    ];
+
+    const categoryFilter = document.getElementById("categoryFilter");
+    const priceFilter = document.getElementById("priceFilter");
+    const sortFilter = document.getElementById("sortFilter");
+    const productContainer = document.getElementById("productContainer");
+
+    function renderProducts(productList) {
+        productContainer.innerHTML = productList.map(product => `
+            <div class="product-card">
+                <img src="${product.img}" alt="${product.title}">
+                <div class="product-title">${product.title}</div>
+                <div class="product-price">$${product.price}</div>
+                <div class="product-rating">Rating: ${product.rating} ⭐</div>
             </div>
-            <img src="image.png" alt="">
-        </div>
-    </div>
-    <!-- ---------------------About-Page------------------- -->
-     <div class="about" id="about">
-        <h1>About <span> Me</span></h1>
-        <div class="inner_about">
-            <div class="image">
-                <img class="abtimg" src="image1.png" alt="">
-            </div> 
-            <div class="full_about">
-                <div class="abt_box">
-                    <div>
-                        <i class="fa-solid fa-medal"></i>
-                        <h3>Experience</h3>
-                        <p>Fersher</p>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-list-check"></i>
-                        <h3>Completed</h3>
-                        <p>2+ projects</p>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-headphones"></i>
-                        <h3>Support</h3>
-                        <p>Online 24/7</p>
-                    </div>
-                </div>
-                <p> I'm a passinate frontend Developer focused on creating responsive and engaging web interfaces.
-                    I love bringing designs to life with clean, accessible and modern code.
-                </p>
-                <button><a href="#contact">Get in Touch <i class="fas fa-paper-plane"></i></a> </button>
-            </div>
-        </div>
-    </div>
+        `).join('');
+    }
 
-    <!-- --------------------Skills-page-------------------- -->
+    function filterAndSort() {
+        let filtered = [...products];
 
-    <div class="skill" id="skills">
-        <h1>Skills</h1>
-        <div class="inner_skill">
-            <div class="programming"></div>
-            <div class="web"></div>
-        </div>
-    </div>
+        if (categoryFilter.value) {
+            filtered = filtered.filter(p => p.category === categoryFilter.value);
+        }
 
-    <!-- --------------------Project-page------------------ -->
+        if (priceFilter.value === "under50") {
+            filtered = filtered.filter(p => p.price < 50);
+        } else if (priceFilter.value === "50to100") {
+            filtered = filtered.filter(p => p.price >= 50 && p.price <= 100);
+        } else if (priceFilter.value === "above100") {
+            filtered = filtered.filter(p => p.price > 100);
+        }
 
-    <div class="projects" id="project">
-        <h1><span>My </span> Creations</h1>
-        <div class="inner_project" id="projects-container"></div>
-    </div>
+        if (sortFilter.value === "priceAsc") {
+            filtered.sort((a, b) => a.price - b.price);
+        } else if (sortFilter.value === "priceDesc") {
+            filtered.sort((a, b) => b.price - a.price);
+        } else if (sortFilter.value === "ratingDesc") {
+            filtered.sort((a, b) => b.rating - a.rating);
+        }
 
-    <!-- ---------------------------Contact-page---------------------- -->
+        renderProducts(filtered);
+    }
 
-    <div class="contacts" id="contact">
-        <h1>Get In Touch</h1>
-        <div class="inner_contact">
-            <div class="contact">
-                <h3>Talk to Me</h3>
-                <div class="mail">
-                    <i class="fa-solid fa-envelopes-bulk"></i>
-                    <h4>Email</h4>
-                    <p>msanjai1012@gmail.com</p>
-                    <p class="send" style="display: inline;"><a  href="mailto:msanjai1012@gmail.com" target="_blank">Get me  <i  class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
-                </div>
-                <div class="number">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <h4>Whatsapp</h4>
-                    <p>+91 8148804539</p>
-                    <p class="send" style="display: inline;"><a  href="https://wa.me/8148804539" target="_blank">Get me  <i  class="fa-solid fa-arrow-up-right-from-square"></i></a></p> 
-                </div>
-            </div>
-            <div class="outer_form">
-                <h3>Feel free to message</h3>
-                <form id="contact-form" class="form">
-                    <input type="text" name="name"placeholder="Type Your Name"><br>
-                    <input type="email" name="email" placeholder="Type Your Email"><br>
-                    <input type="text" name="title" placeholder="Subject" required><br>
-                    <textarea name="message" placeholder="Type Your Message"></textarea><br>
-                    <input type="submit" class="submit" value="Send Message">
-                </form>
-            </div>
-        </div>
-    </div>
+    categoryFilter.addEventListener("change", filterAndSort);
+    priceFilter.addEventListener("change", filterAndSort);
+    sortFilter.addEventListener("change", filterAndSort);
 
-    <!-- ------------------------------Footer-page---------------------------- -->
-     
-    <footer>
-        <h1>Sanjai M</h1>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#project">Project</a></li>
-            <li><a href="#skills">Skills</a></li>
-        </ul>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/sanjai-m12/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/msanjai2005" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://leetcode.com/u/sanjaim2005/" target="_blank"><i class="fas fa-code"></i></a>
-            <a href="https://www.instagram.com/sanjai_m_official/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        </div>
-        <p>&copy Sanjai M. All rights reserved</p>
-    </footer>
+    renderProducts(products);
+
+    </script>
 </body>
-<script src="script.js"></script>
 </html>
