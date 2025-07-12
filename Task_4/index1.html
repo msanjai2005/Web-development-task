@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>ToDo List App</h1>
+    <div id="container">
+        <div id="push">
+            <input type="text" id="input" placeholder="Enter the Text...">
+            <button id="btn">Add</button>
+        </div>
+        <div id="pushed">
+        </div>
+    </div>
+</body>
+<script>
+    let input = document.getElementById('input')
+    let add= document.getElementById('btn')
+    let list= document.getElementById('pushed')
+    add.addEventListener('click', ()=>{
+        if(input.value.length==0){
+            alert('Enter The Text');
+        }
+        else{
+            document.querySelector('#pushed').innerHTML+=
+            `<div class="task">
+                <span id="taskname">${document.querySelector('#input').value}</span>
+                <button class="delete">🗑️</button>
+            </div>`
+        }
+        
+        var current_tasks = document.querySelectorAll(".delete");
+        for (var i=0; i<current_tasks.length; i++){
+            current_tasks[i].onclick=function(){
+                this.parentNode.remove();
+            } 
+        }
+        input.value=''   
+    })
+</script>
+</html>
