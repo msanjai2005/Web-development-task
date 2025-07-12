@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+      (function () {
+        emailjs.init("A7igV-AA2vg_sAQ9F"); // Replace with your EmailJS Public Key
+      })();
+    </script>
+    <title>Sanjai's Portfolio</title>
+   <link rel="icon" href="images/icon.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- --------------------Navigation Bar----------------- -->
+    <div class="navbar-container">
+        <nav class="menu navbar">
+            <ul class="sidebar">
+                <li><img onclick="sidebarClose()" src="images/svg2.svg" alt="" ></li>
+                <li onclick="sidebarClose()"><a class="menuL"  href="#home">Home</a></li>
+                <li onclick="sidebarClose()"><a class="menuL" href="#about">About</a></li>
+                <li onclick="sidebarClose()"><a class="menuL" href="#skills">Skills</a></li>
+                <li onclick="sidebarClose()"><a class="menuL" href="#project">Projects</a></li>
+                <li onclick="sidebarClose()"><a class="menuL" href="#contact">Contact</a></li>  
+            </ul>
+            <ul class="mainbar">
+                <li><a href="#home">Portfolio</a></li>
+                <li class="hideOnMobile"><a href="#home">Home</a></li>
+                <li class="hideOnMobile"><a href="#about">About</a></li>
+                <li class="hideOnMobile"><a href="#skills">Skills</a></li>
+                <li class="hideOnMobile"><a href="#project">Projects</a></li>
+                <li class="hideOnMobile"><a href="#contact">Contact</a></li>  
+                <li class="hamburger" onclick="sidebarShow()"><img src="images/svg1.svg" alt=""></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- -------------------Home-page------------------- -->
+    <div class="Home" id="home">
+        <div class="inner-home">
+            <div class="Small_about">
+                <h3>Hello It's me</h3>
+                <h1>SANJAI M</h1>
+                <h2>I'm a  <span id="dynamic-role"></span>|</h2>
+                <p>Hi, I'm  a Frontend Developer crafting responsive and engaging web experiences.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/sanjai-m12/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/msanjai2005" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://leetcode.com/u/sanjaim2005/" target="_blank"><i class="fas fa-code"></i></a>
+                    <a href="https://www.instagram.com/sanjai_m_official/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <button><a href="images/Final_Resume.pdf" download >Download CV <i class="fa-solid fa-file-lines"></i></a></button>
+            </div>
+            <img src="image.png" alt="">
+        </div>
+    </div>
+    <!-- ---------------------About-Page------------------- -->
+     <div class="about" id="about">
+        <h1>About <span> Me</span></h1>
+        <div class="inner_about">
+            <div class="image">
+                <img class="abtimg" src="image1.png" alt="">
+            </div> 
+            <div class="full_about">
+                <div class="abt_box">
+                    <div>
+                        <i class="fa-solid fa-medal"></i>
+                        <h3>Experience</h3>
+                        <p>Fersher</p>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-list-check"></i>
+                        <h3>Completed</h3>
+                        <p>2+ projects</p>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-headphones"></i>
+                        <h3>Support</h3>
+                        <p>Online 24/7</p>
+                    </div>
+                </div>
+                <p> I'm a passinate frontend Developer focused on creating responsive and engaging web interfaces.
+                    I love bringing designs to life with clean, accessible and modern code.
+                </p>
+                <button><a href="#contact">Get in Touch <i class="fas fa-paper-plane"></i></a> </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- --------------------Skills-page-------------------- -->
+
+    <div class="skill" id="skills">
+        <h1>Skills</h1>
+        <div class="inner_skill">
+            <div class="programming"></div>
+            <div class="web"></div>
+        </div>
+    </div>
+
+    <!-- --------------------Project-page------------------ -->
+
+    <div class="projects" id="project">
+        <h1><span>My </span> Creations</h1>
+        <div class="inner_project" id="projects-container"></div>
+    </div>
+
+    <!-- ---------------------------Contact-page---------------------- -->
+
+    <div class="contacts" id="contact">
+        <h1>Get In Touch</h1>
+        <div class="inner_contact">
+            <div class="contact">
+                <h3>Talk to Me</h3>
+                <div class="mail">
+                    <i class="fa-solid fa-envelopes-bulk"></i>
+                    <h4>Email</h4>
+                    <p>msanjai1012@gmail.com</p>
+                    <p class="send" style="display: inline;"><a  href="mailto:msanjai1012@gmail.com" target="_blank">Get me  <i  class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
+                </div>
+                <div class="number">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <h4>Whatsapp</h4>
+                    <p>+91 8148804539</p>
+                    <p class="send" style="display: inline;"><a  href="https://wa.me/8148804539" target="_blank">Get me  <i  class="fa-solid fa-arrow-up-right-from-square"></i></a></p> 
+                </div>
+            </div>
+            <div class="outer_form">
+                <h3>Feel free to message</h3>
+                <form id="contact-form" class="form">
+                    <input type="text" name="name"placeholder="Type Your Name"><br>
+                    <input type="email" name="email" placeholder="Type Your Email"><br>
+                    <input type="text" name="title" placeholder="Subject" required><br>
+                    <textarea name="message" placeholder="Type Your Message"></textarea><br>
+                    <input type="submit" class="submit" value="Send Message">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ------------------------------Footer-page---------------------------- -->
+     
+    <footer>
+        <h1>Sanjai M</h1>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#project">Project</a></li>
+            <li><a href="#skills">Skills</a></li>
+        </ul>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/sanjai-m12/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/msanjai2005" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://leetcode.com/u/sanjaim2005/" target="_blank"><i class="fas fa-code"></i></a>
+            <a href="https://www.instagram.com/sanjai_m_official/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <p>&copy Sanjai M. All rights reserved</p>
+    </footer>
+</body>
+<script src="script.js"></script>
+</html>
